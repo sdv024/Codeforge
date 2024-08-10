@@ -1,0 +1,37 @@
+import random
+
+def user():
+    u = input("Enter your choice (rock/paper/scissors): ").lower()
+    while u not in ['rock', 'paper', 'scissors']:
+        print("Invalid choice!")
+        u = input("Enter your choice (rock/paper/scissors): ").lower()
+    return u
+
+def computer():
+    ch = ['rock', 'paper', 'scissors']
+    return random.choice(ch)
+
+def win(u, ch):
+    if u == ch:
+        return "It's a tie!"
+    elif (u == 'rock' and ch == 'scissors') or (u == 'paper' and ch == 'rock') or (u == 'scissors' and ch == 'paper'):
+        return "You win!"
+    else:
+        return "Computer wins!"
+
+def play():
+    print("Let's play rock-paper-scissors!")
+
+    while True:
+        u = user()
+        ch = computer()
+        print(f"\nYour's : {u}")
+        print(f"Computer's : {ch}")
+        result = win(u, ch)
+        print(result)
+        again = input("Do you want to play again? (yes/no): ").lower()
+        if again != 'yes':
+            print("Thanks for playing!")
+            break
+
+play()
