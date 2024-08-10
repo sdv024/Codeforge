@@ -1,0 +1,11 @@
+def decimal(binn):
+    d = 0
+    p = len(binn) - 1
+    for di in binn:
+        if di == '1':
+            d = d + pow(2,p)
+        p -= 1
+    return d
+
+a=input("Enter a binary value : ")
+print(f"The decimal equivalent of {a} is {decimal(a)}")
